@@ -1,264 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Resin By Mayuri | Luxury Handmade Resin</title>
-
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-font-family:'Georgia', serif;
-}
-
-body{
-background: #000;
-color: #fff;
-}
-
-header{
-background: linear-gradient(to right,#000,#1a1a1a);
-padding:20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-border-bottom:2px solid gold;
-}
-
-header h1{
-color:gold;
-font-size:24px;
-letter-spacing:2px;
-}
-
-nav a{
-color:silver;
-text-decoration:none;
-margin:0 15px;
-font-weight:bold;
-}
-
-nav a:hover{
-color:gold;
-}
-
-.hero{
-height:90vh;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-text-align:center;
-background:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1616627455484-cf3b1d8f01c0');
-background-size:cover;
-background-position:center;
-}
-
-.hero h2{
-font-size:40px;
-color:gold;
-margin-bottom:15px;
-}
-
-.hero p{
-max-width:600px;
-color:silver;
-margin-bottom:25px;
-}
-
-.btn{
-padding:12px 25px;
-background:gold;
-color:black;
-text-decoration:none;
-font-weight:bold;
-border-radius:5px;
-transition:0.3s;
-}
-
-.btn:hover{
-background:silver;
-}
-
-section{
-padding:60px 20px;
-text-align:center;
-}
-
-section h2{
-color:gold;
-margin-bottom:40px;
-font-size:30px;
-}
-
-.products{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:30px;
-}
-
-.card{
-background:#111;
-border:1px solid gold;
-border-radius:10px;
-width:280px;
-padding:20px;
-transition:0.3s;
-}
-
-.card:hover{
-transform:scale(1.05);
-}
-
-.card img{
-width:100%;
-height:220px;
-object-fit:cover;
-border-radius:8px;
-margin-bottom:15px;
-}
-
-.card h3{
-color:gold;
-margin-bottom:10px;
-}
-
-.card p{
-color:silver;
-margin-bottom:15px;
-}
-
-form{
-max-width:500px;
-margin:auto;
-display:flex;
-flex-direction:column;
-gap:15px;
-}
-
-form input, form textarea{
-padding:10px;
-border:none;
-border-radius:5px;
-}
-
-footer{
-background:#111;
-padding:20px;
-text-align:center;
-color:silver;
-border-top:2px solid gold;
-}
-
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:gold;
-color:black;
-padding:15px;
-border-radius:50%;
-font-weight:bold;
-text-decoration:none;
-}
-</style>
+    <title>Mayuri Resin Art Studio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
-<h1>Resin By Mayuri</h1>
-<nav>
-<a href="#home">Home</a>
-<a href="#shop">Shop</a>
-<a href="#premium">Premium</a>
-<a href="#custom">Custom Orders</a>
-<a href="#reviews">Reviews</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-</nav>
-</header>
+    <!-- Header -->
+    <header>
+        <h1>✨ Mayuri Resin Art Studio ✨</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#shop">Shop</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-<section class="hero" id="home">
-<h2>Luxury Handmade Resin Art</h2>
-<p>Crafting timeless memories with royal elegance, precision and premium finishing.</p>
-<a href="#shop" class="btn">Shop Now</a>
-</section>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h2>Handmade Resin Creations</h2>
+        <p>Unique • Elegant • Custom Made</p>
+        <button onclick="shopNow()">Shop Now</button>
+    </section>
 
-<section id="shop">
-<h2>Resin Keychains</h2>
-<div class="products">
+    <!-- About Section -->
+    <section id="about">
+        <h2>About the Artist</h2>
+        <p>
+            Hi, I'm Mayuri! I create handmade resin art pieces including
+            wall art, jewelry, coasters, and custom gifts.
+            Every piece is crafted with love and creativity.
+        </p>
+    </section>
 
-<div class="card">
-<img src="https://via.placeholder.com/300x300">
-<h3>Name Keychain</h3>
-<p>Customized with premium gold finish.</p>
-<a href="https://wa.me/918605658140" class="btn">Order on WhatsApp</a>
-</div>
+    <!-- Shop Section -->
+    <section id="shop">
+        <h2>Our Products</h2>
 
-<div class="card">
-<img src="https://via.placeholder.com/300x300">
-<h3>Couple Keychain</h3>
-<p>Perfect gift for special moments.</p>
-<a href="https://wa.me/918605658140" class="btn">Order on WhatsApp</a>
-</div>
+        <div class="products">
 
-</div>
-</section>
+            <div class="card">
+                <img src="https://via.placeholder.com/200">
+                <h3>Resin Wall Art</h3>
+                <p>₹1999</p>
+                <button onclick="addToCart()">Add to Cart</button>
+            </div>
 
-<section id="premium">
-<h2>Premium Collection</h2>
-<div class="products">
+            <div class="card">
+                <img src="https://via.placeholder.com/200">
+                <h3>Resin Coasters</h3>
+                <p>₹799</p>
+                <button onclick="addToCart()">Add to Cart</button>
+            </div>
 
-<div class="card">
-<img src="https://via.placeholder.com/300x300">
-<h3>Wedding Memory Frame</h3>
-<p>Luxury preserved resin art frame.</p>
-<a href="https://wa.me/918605658140" class="btn">Order Now</a>
-</div>
+            <div class="card">
+                <img src="https://via.placeholder.com/200">
+                <h3>Resin Jewelry</h3>
+                <p>₹599</p>
+                <button onclick="addToCart()">Add to Cart</button>
+            </div>
 
-</div>
-</section>
+        </div>
+    </section>
 
-<section id="custom">
-<h2>Custom Order Request</h2>
-<form>
-<input type="text" placeholder="Your Name">
-<input type="tel" placeholder="Phone Number">
-<input type="text" placeholder="Product Type">
-<input type="text" placeholder="Custom Text">
-<textarea placeholder="Color preference / Special request"></textarea>
-<button class="btn">Submit Request</button>
-</form>
-</section>
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: mayuriart@gmail.com</p>
+        <p>Instagram: @mayuri_resin_art</p>
+    </section>
 
-<section id="reviews">
-<h2>Customer Reviews</h2>
-<p>⭐⭐⭐⭐⭐ “Premium finishing & beautiful packaging.” – Sneha, Pune</p>
-<p>⭐⭐⭐⭐⭐ “Looks so elegant and classy!” – Riya, Mumbai</p>
-</section>
+    <footer>
+        <p>© 2026 Mayuri Resin Art Studio | All Rights Reserved</p>
+    </footer>
 
-<section id="about">
-<h2>About Us</h2>
-<p>Resin By Mayuri started with passion and creativity. Every product is handcrafted with love, luxury detailing and royal elegance.</p>
-</section>
-
-<section id="contact">
-<h2>Contact Us</h2>
-<p>📞 8605658140</p>
-<p>📸 Instagram: <a href="https://www.instagram.com/___mayuri_bhivsane?igsh=OWlnZ3I3cDdjcjht" style="color:gold;">@___mayuri_bhivsane</a></p>
-<p>PAN India Shipping | 5–7 Working Days Dispatch | Secure Packaging</p>
-</section>
-
-<footer>
-© 2026 Resin By Mayuri | Luxury Handmade Resin
-</footer>
-
-<a href="https://wa.me/918605658140" class="whatsapp">WA</a>
-
+<script src="script.js"></script>
 </body>
 </html>

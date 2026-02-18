@@ -1,223 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mayuri Royal Resin</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mayuri’s Resin Art</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:#000;color:#fff}
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #000;
-      color: #fff;
-    }
+header{background:#000;padding:30px 20px;text-align:center;border-bottom:2px solid gold}
+header h1{font-family:'Playfair Display',serif;font-size:42px;color:gold;letter-spacing:2px}
+header p{color:silver;margin-top:8px}
 
-    header {
-      background: linear-gradient(90deg, #000000, #1a1a1a);
-      padding: 30px 20px;
-      text-align: center;
-      border-bottom: 2px solid gold;
-    }
+nav{background:#111;padding:15px;text-align:center;border-bottom:1px solid gold;position:sticky;top:0;z-index:1000}
+nav a{color:silver;margin:0 18px;text-decoration:none;font-weight:500}
+nav a:hover{color:gold}
 
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 38px;
-      color: gold;
-      letter-spacing: 2px;
-    }
+.hero{text-align:center;padding:100px 20px;background:linear-gradient(180deg,#000,#1a1a1a)}
+.hero h2{font-family:'Playfair Display',serif;font-size:36px;color:gold;margin-bottom:15px;animation:fadeIn 2s}
+.hero p{color:silver;margin-bottom:25px}
 
-    header p {
-      color: silver;
-      margin-top: 10px;
-    }
+.btn{display:inline-block;padding:12px 22px;border-radius:30px;background:gold;color:black;font-weight:bold;text-decoration:none;transition:0.3s}
+.btn:hover{background:silver}
 
-    nav {
-      background: #111;
-      padding: 15px;
-      text-align: center;
-      border-bottom: 1px solid gold;
-    }
+.section-title{font-family:'Playfair Display',serif;color:gold;text-align:center;margin:60px 0 30px;font-size:30px}
 
-    nav a {
-      color: silver;
-      margin: 0 20px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: 0.3s;
-    }
+.products,.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;padding:0 40px 60px}
+.card{background:#111;padding:20px;border-radius:15px;text-align:center;border:1px solid #333;box-shadow:0 0 15px rgba(255,215,0,0.2);transition:0.4s}
+.card:hover{transform:translateY(-8px);border-color:gold;box-shadow:0 0 25px rgba(255,215,0,0.5)}
+.card img{width:100%;border-radius:10px}
+.card h3{margin:15px 0 10px;color:gold;font-family:'Playfair Display',serif}
+.price{color:silver;font-weight:bold;margin-bottom:10px}
 
-    nav a:hover {
-      color: gold;
-    }
+.info-section{padding:60px 20px;text-align:center;background:#111;border-top:1px solid gold}
+.info-section p{color:silver;margin-bottom:12px;max-width:800px;margin-left:auto;margin-right:auto}
 
-    .hero {
-      text-align: center;
-      padding: 70px 20px;
-      background: linear-gradient(180deg, #000, #1a1a1a);
-    }
+ul.features{list-style:none;margin-top:20px}
+ul.features li{margin:10px 0;color:silver}
 
-    .hero h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 32px;
-      color: gold;
-      margin-bottom: 15px;
-    }
+.review-box{max-width:700px;margin:20px auto;padding:20px;background:#000;border:1px solid gold;border-radius:10px;color:silver}
 
-    .hero p {
-      color: silver;
-    }
+form{max-width:600px;margin:30px auto;text-align:left}
+form input,form textarea{width:100%;padding:10px;margin-bottom:15px;border:none;border-radius:5px}
+form button{width:100%;padding:12px;background:gold;border:none;border-radius:30px;font-weight:bold}
 
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      padding: 60px 40px;
-      background: #000;
-    }
+footer{background:#000;padding:20px;text-align:center;border-top:2px solid gold;color:silver}
 
-    .card {
-      background: #111;
-      padding: 20px;
-      border-radius: 15px;
-      text-align: center;
-      border: 1px solid #333;
-      box-shadow: 0 0 15px rgba(255,215,0,0.2);
-      transition: 0.4s;
-    }
+.whatsapp-float{position:fixed;bottom:20px;right:20px;background:gold;color:black;padding:15px 18px;border-radius:50%;font-weight:bold;text-decoration:none;box-shadow:0 0 15px gold}
 
-    .card:hover {
-      transform: translateY(-8px);
-      border-color: gold;
-      box-shadow: 0 0 25px rgba(255,215,0,0.5);
-    }
-
-    .card img {
-      width: 100%;
-      border-radius: 10px;
-    }
-
-    .card h3 {
-      margin: 15px 0 10px;
-      color: gold;
-      font-family: 'Playfair Display', serif;
-    }
-
-    .price {
-      color: silver;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 10px 18px;
-      margin-top: 10px;
-      border-radius: 30px;
-      background: gold;
-      color: black;
-      font-weight: bold;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      background: silver;
-    }
-
-    .about, .contact {
-      padding: 60px 20px;
-      text-align: center;
-      background: #111;
-      border-top: 1px solid gold;
-    }
-
-    .about h2, .contact h2 {
-      font-family: 'Playfair Display', serif;
-      color: gold;
-      margin-bottom: 20px;
-    }
-
-    .about p, .contact p {
-      color: silver;
-      margin-bottom: 10px;
-    }
-
-    footer {
-      background: #000;
-      padding: 20px;
-      text-align: center;
-      border-top: 2px solid gold;
-      color: silver;
-    }
-
-  </style>
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+</style>
 </head>
 <body>
 
 <header>
-  <h1>Mayuri Royal Resin</h1>
-  <p>Luxury Handmade Resin Creations</p>
+<h1>Mayuri’s Resin Art</h1>
+<p>Luxury Handmade Resin Creations – Black • Silver • Gold Collection</p>
 </header>
 
 <nav>
-  <a href="#home">Home</a>
-  <a href="#products">Products</a>
-  <a href="#about">About</a>
-  <a href="#contact">Contact</a>
+<a href="#home">Home</a>
+<a href="#products">Products</a>
+<a href="#gallery">Gallery</a>
+<a href="#reviews">Reviews</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
 </nav>
 
 <section class="hero" id="home">
-  <h2>Elegance Crafted In Resin</h2>
-  <p>Black • Silver • Gold — Royal Collection</p>
+<h2>Elegance Crafted In Resin</h2>
+<p>Premium Custom Resin Art Designed With Royal Finishing</p>
+<a href="#products" class="btn">Shop Now</a>
 </section>
 
-<section class="products" id="products">
-
-  <div class="card">
-    <img src="https://via.placeholder.com/300x250" alt="Custom Keychain">
-    <h3>Royal Name Keychain</h3>
-    <p class="price">Starting ₹299</p>
-    <a href="https://wa.me/918605658140" class="btn">Order Now</a>
-  </div>
-
-  <div class="card">
-    <img src="https://via.placeholder.com/300x250" alt="Couple Keychain">
-    <h3>Couple Resin Set</h3>
-    <p class="price">Starting ₹399</p>
-    <a href="https://wa.me/918605658140" class="btn">Order Now</a>
-  </div>
-
-  <div class="card">
-    <img src="https://via.placeholder.com/300x250" alt="Photo Frame">
-    <h3>Luxury Resin Frame</h3>
-    <p class="price">Starting ₹699</p>
-    <a href="https://wa.me/918605658140" class="btn">Order Now</a>
-  </div>
-
+<h2 class="section-title" id="products">Our Collection</h2>
+<section class="products">
+<div class="card">
+<img src="https://via.placeholder.com/300x250">
+<h3>Name Keychain</h3>
+<p class="price">₹299</p>
+<button class="btn" onclick="payNow()">Buy Now</button>
+</div>
+<div class="card">
+<img src="https://via.placeholder.com/300x250">
+<h3>Photo Frame</h3>
+<p class="price">₹699</p>
+<button class="btn" onclick="payNow()">Buy Now</button>
+</div>
+<div class="card">
+<img src="https://via.placeholder.com/300x250">
+<h3>Resin Fridge Magnet</h3>
+<p class="price">₹199</p>
+<button class="btn" onclick="payNow()">Buy Now</button>
+</div>
 </section>
 
-<section class="about" id="about">
-  <h2>About Mayuri Royal Resin</h2>
-  <p>We design premium handcrafted resin art pieces with a royal touch of black, silver and gold. Every product is customized with precision, love and luxury finishing to make your memories timeless.</p>
+<h2 class="section-title" id="gallery">Gallery</h2>
+<section class="gallery">
+<img src="https://via.placeholder.com/300x250">
+<img src="https://via.placeholder.com/300x250">
+<img src="https://via.placeholder.com/300x250">
+<img src="https://via.placeholder.com/300x250">
 </section>
 
-<section class="contact" id="contact">
-  <h2>Contact Us</h2>
-  <p><strong>Phone / WhatsApp:</strong> 8605658140</p>
-  <p><strong>Instagram:</strong> <a href="https://www.instagram.com/___mayuri_bhivsane?igsh=OWlnZ3I3cDdjcjht" target="_blank" style="color: gold; text-decoration: none;">@___mayuri_bhivsane</a></p>
-  <p>DM or WhatsApp for Custom Orders</p>
+<h2 class="section-title" id="reviews">Customer Reviews</h2>
+<div class="review-box">"Absolutely loved the royal finishing!" – Sneha</div>
+<div class="review-box">"Best handmade gift ever 💛" – Riya</div>
+
+<section class="info-section" id="about">
+<h2 class="section-title">About</h2>
+<p>Hello, I am Mayuri, founder of Mayuri’s Resin Art based in Kalyan, Mumbai.</p>
+<p>I create premium handcrafted resin products with passion and dedication. Every piece is designed with luxury finishing to give your memories a royal touch.</p>
+<p><strong>Location:</strong> Kalyan, Mumbai, Maharashtra, India</p>
+</section>
+
+<section class="info-section" id="contact">
+<h2 class="section-title">Place Custom Order</h2>
+<form action="mailto:mayuri@example.com" method="post" enctype="text/plain">
+<input type="text" placeholder="Your Name" required>
+<input type="tel" placeholder="Phone Number" required>
+<textarea rows="4" placeholder="Describe Your Custom Order" required></textarea>
+<button type="submit">Submit Order</button>
+</form>
+<p><strong>Phone / WhatsApp:</strong> 8605658140</p>
+<p><strong>Instagram:</strong> @___mayuri_bhivsane</p>
 </section>
 
 <footer>
-  <p>© 2026 Mayuri Royal Resin | All Rights Reserved</p>
+<p>© 2026 Mayuri’s Resin Art | All Rights Reserved</p>
 </footer>
+
+<a href="https://wa.me/918605658140" class="whatsapp-float">W</a>
+
+<script>
+function payNow(){
+alert("Online Payment Integration (Razorpay) will be added with your business account details.");
+}
+</script>
 
 </body>
 </html>

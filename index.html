@@ -1,80 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Mayuri Resin Art Studio</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mayuri's Resin Art</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Basic Reset */
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {font-family: 'Roboto', sans-serif; background: #1b1b1b; color:#fff;}
+    a {text-decoration:none; color:inherit;}
 
-    <!-- Header -->
-    <header>
-        <h1>✨ Mayuri Resin Art Studio ✨</h1>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#shop">Shop</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #6a0dad, #000000);
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items:center;
+      position: sticky;
+      top:0;
+      z-index:100;
+    }
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5em;
+      color: gold;
+      text-shadow: 1px 1px 5px #fff;
+    }
+    nav a {
+      margin-left: 25px;
+      font-weight:bold;
+      transition:0.3s;
+    }
+    nav a:hover {color: gold;}
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <h2>Handmade Resin Creations</h2>
-        <p>Unique • Elegant • Custom Made</p>
-        <button onclick="shopNow()">Shop Now</button>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <h2>About the Artist</h2>
-        <p>
-            Hi, I'm Mayuri! I create handmade resin art pieces including
-            wall art, jewelry, coasters, and custom gifts.
-            Every piece is crafted with love and creativity.
-        </p>
-    </section>
-
-    <!-- Shop Section -->
-    <section id="shop">
-        <h2>Our Products</h2>
-
-        <div class="products">
-
-            <div class="card">
-                <img src="https://via.placeholder.com/200">
-                <h3>Resin Wall Art</h3>
-                <p>₹1999</p>
-                <button onclick="addToCart()">Add to Cart</button>
-            </div>
-
-            <div class="card">
-                <img src="https://via.placeholder.com/200">
-                <h3>Resin Coasters</h3>
-                <p>₹799</p>
-                <button onclick="addToCart()">Add to Cart</button>
-            </div>
-
-            <div class="card">
-                <img src="https://via.placeholder.com/200">
-                <h3>Resin Jewelry</h3>
-                <p>₹599</p>
-                <button onclick="addToCart()">Add to Cart</button>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Email: mayuriart@gmail.com</p>
-        <p>Instagram: @mayuri_resin_art</p>
-    </section>
-
-    <footer>
-        <p>© 2026 Mayuri Resin Art Studio | All Rights Reserved</p>
-    </footer>
-
-<script src="script.js"></script>
-</body>
-</html>
+    /* Hero Section */
+    .hero {

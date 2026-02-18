@@ -1,254 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mayuri's Resin Art</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    /* Basic Reset */
-    * {margin:0; padding:0; box-sizing:border-box;}
-    body {font-family: 'Roboto', sans-serif; background: #1b1b1b; color:#fff;}
-    a {text-decoration:none; color:inherit;}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mayuri's Resin Art</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* RESET */
+* {margin:0; padding:0; box-sizing:border-box;}
+body {font-family: 'Roboto', sans-serif; background:#1b1b1b; color:#fff; overflow-x:hidden; scroll-behavior: smooth;}
+a {text-decoration:none; color:inherit;}
 
-    /* Header */
-    header {
-      background: linear-gradient(135deg, #6a0dad, #000000);
-      padding: 20px 50px;
-      display: flex;
-      justify-content: space-between;
-      align-items:center;
-      position: sticky;
-      top:0;
-      z-index:100;
-    }
-    header h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2.5em;
-      color: gold;
-      text-shadow: 1px 1px 5px #fff;
-    }
-    nav a {
-      margin-left: 25px;
-      font-weight:bold;
-      transition:0.3s;
-    }
-    nav a:hover {color: gold;}
+/* GLITTER ANIMATION */
+@keyframes glitter {
+  0%, 100% {text-shadow: 0 0 5px gold, 0 0 10px purple;}
+  50% {text-shadow: 0 0 20px gold, 0 0 30px purple;}
+}
 
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1574180045827-681f8a1a9622?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
-      height: 100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-    }
-    .hero h2 {
-      font-size: 3em;
-      color: gold;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 10px #000;
-    }
-    .hero p {
-      font-size: 1.2em;
-      margin-bottom:30px;
-      color:#fff;
-    }
-    .hero a {
-      background: gold;
-      color: #000;
-      padding: 15px 30px;
-      font-weight:bold;
-      border-radius:50px;
-      box-shadow: 0 0 20px gold;
-      transition:0.3s;
-    }
-    .hero a:hover {
-      background: #fff;
-      color:#6a0dad;
-      box-shadow: 0 0 30px purple;
-    }
+/* PARTICLES BACKGROUND */
+#particles {
+  position: fixed;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:0;
+  pointer-events:none;
+  overflow:hidden;
+}
+.particle {
+  position: absolute;
+  background: gold;
+  border-radius:50%;
+  opacity:0.8;
+  animation: float 8s linear infinite;
+}
+@keyframes float {
+  0% {transform: translateY(0) translateX(0) scale(1);}
+  50% {transform: translateY(-600px) translateX(100px) scale(1.2);}
+  100% {transform: translateY(0) translateX(0) scale(1);}
+}
 
-    /* Sections */
-    section {padding:80px 50px;}
-    h2.section-title {
-      text-align:center;
-      font-size:2.5em;
-      margin-bottom:50px;
-      color: gold;
-      text-shadow: 1px 1px 5px #fff;
-    }
+/* HEADER */
+header {
+  position: sticky;
+  top:0;
+  z-index:100;
+  background: linear-gradient(135deg,#6a0dad,#000);
+  padding:20px 50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+header h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size:2.8em;
+  color: gold;
+  animation: glitter 2s infinite;
+}
+nav a {margin-left:25px; font-weight:bold; transition:0.3s;}
+nav a:hover {color: gold;}
 
-    /* Product Grid */
-    .products {
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-      gap:40px;
-    }
-    .product-card {
-      background: linear-gradient(145deg, #1b1b1b, #2e2e2e);
-      border: 2px solid gold;
-      border-radius:20px;
-      overflow:hidden;
-      box-shadow: 0 0 15px gold;
-      transition: transform 0.3s;
-    }
-    .product-card:hover {transform: scale(1.05);}
-    .product-card img {width:100%; display:block;}
-    .product-card h3 {padding:15px; color:gold;}
-    .product-card p {padding:0 15px 15px 15px; font-size:0.9em; color:#fff;}
-    .product-card button {
-      margin: 0 15px 15px 15px;
-      padding:10px 20px;
-      border:none;
-      background: gold;
-      color:#000;
-      font-weight:bold;
-      border-radius:50px;
-      cursor:pointer;
-      transition:0.3s;
-    }
-    .product-card button:hover {background: purple; color: gold; box-shadow:0 0 10px gold;}
+/* HERO */
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1574180045827-681f8a1a9622?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position: relative;
+  z-index:1;
+}
+.hero h2 {
+  font-size:3em;
+  color: gold;
+  margin-bottom:20px;
+  animation: glitter 2s infinite;
+}
+.hero p {font-size:1.2em; margin-bottom:30px; color:#fff;}
+.hero a {
+  background: linear-gradient(45deg, gold, purple);
+  padding: 15px 30px;
+  font-weight:bold;
+  border-radius:50px;
+  box-shadow:0 0 20px gold;
+  animation: glitter 2s infinite;
+  transition:0.3s;
+}
+.hero a:hover {background: gold; color:#000; box-shadow:0 0 30px purple;}
 
-    /* Contact Section */
-    .contact-form {
-      max-width:600px;
-      margin:0 auto;
-      display:flex;
-      flex-direction:column;
-      gap:20px;
-    }
-    .contact-form input, .contact-form textarea {
-      padding:15px;
-      border-radius:10px;
-      border:none;
-      outline:none;
-      font-size:1em;
-    }
-    .contact-form button {
-      background: gold;
-      color:black;
-      padding:15px;
-      font-weight:bold;
-      border-radius:50px;
-      cursor:pointer;
-      transition:0.3s;
-    }
-    .contact-form button:hover {background: purple; color: gold; box-shadow:0 0 10px gold;}
+/* SECTIONS */
+section {padding:80px 50px; position:relative; z-index:1;}
+h2.section-title {
+  text-align:center;
+  font-size:2.5em;
+  margin-bottom:50px;
+  color: gold;
+  animation: glitter 2s infinite;
+}
 
-    /* Footer */
-    footer {
-      background:#000;
-      padding:40px 50px;
-      text-align:center;
-      color:#fff;
-    }
-    footer a {color: gold; font-weight:bold;}
-  </style>
+/* PRODUCT GRID */
+.products {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap:40px;
+}
+.product-card {
+  background: linear-gradient(145deg,#1b1b1b,#2e2e2e);
+  border:2px solid gold;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 0 15px gold;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position:relative;
+}
+.product-card:hover {transform: scale(1.05); box-shadow:0 0 30px gold;}
+.product-card img {width:100%; display:block;}
+.product-card h3 {padding:15px; color:gold;}
+.product-card p {padding:0 15px 15px 15px; font-size:0.9em; color:#fff;}
+.product-card button {
+  margin: 0 15px 15px 15px;
+  padding:10px 20px;
+  border:none;
+  background: linear-gradient(45deg, gold, purple);
+  color:#000;
+  font-weight:bold;
+  border-radius:50px;
+  cursor:pointer;
+  transition:0.3s;
+  animation: glitter 2s infinite;
+}
+.product-card button:hover {background: gold; color:#000; box-shadow:0 0 20px purple;}
+
+/* CONTACT FORM */
+.contact-form {
+  max-width:600px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+.contact-form input, .contact-form textarea, .contact-form select {
+  padding:15px;
+  border-radius:10px;
+  border:none;
+  outline:none;
+  font-size:1em;
+}
+.contact-form button {
+  background: linear-gradient(45deg,gold,purple);
+  color:black;
+  padding:15px;
+  font-weight:bold;
+  border-radius:50px;
+  cursor:pointer;
+  animation: glitter 2s infinite;
+}
+.contact-form button:hover {background: gold; color:#000; box-shadow:0 0 10px purple;}
+
+/* FOOTER */
+footer {
+  background:#000;
+  padding:40px 50px;
+  text-align:center;
+  color:#fff;
+}
+footer a {color: gold; font-weight:bold;}
+</style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <h1>Mayuri's Resin Art</h1>
-    <nav>
-      <a href="#products">Products</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<!-- PARTICLES -->
+<div id="particles"></div>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h2>Handcrafted Resin Art</h2>
-    <p>Custom Keychains, Photo Frames, Home Décor & Jewelry</p>
-    <a href="#products">Shop Now</a>
-  </section>
+<!-- HEADER -->
+<header>
+  <h1>Mayuri's Resin Art</h1>
+  <nav>
+    <a href="#products">Products</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <!-- Products Section -->
-  <section id="products">
-    <h2 class="section-title">Our Products</h2>
-    <div class="products">
+<!-- HERO -->
+<section class="hero">
+  <h2>Handcrafted Resin Art</h2>
+  <p>Custom Keychains, Photo Frames, Jewelry & Home Décor</p>
+  <a href="#products">Shop Now</a>
+</section>
 
-      <!-- Photo Frames -->
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1599042000640-4d1f4d9c2a53?auto=format&fit=crop&w=400&q=80" alt="Custom Photo Frame">
-        <h3>Custom Photo Frame</h3>
-        <p>Personalized name frames, wedding, anniversary, baby milestone, floral and LED frames.</p>
-        <button>Order Now</button>
-      </div>
+<!-- PRODUCTS -->
+<section id="products">
+  <h2 class="section-title">Our Products</h2>
+  <div class="products">
 
-      <!-- Keychains -->
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1617196030657-9370e8f85925?auto=format&fit=crop&w=400&q=80" alt="Resin Keychains">
-        <h3>Resin Keychains</h3>
-        <p>Alphabet, name, photo, couple, shaker, floral, and glitter keychains.</p>
-        <button>Order Now</button>
-      </div>
-
-      <!-- Home Décor -->
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1603398938378-5d1a1a17771f?auto=format&fit=crop&w=400&q=80" alt="Resin Home Décor">
-        <h3>Home Décor</h3>
-        <p>Resin name plates, wall art, clocks, coasters, trays, tea light holders, and showpieces.</p>
-        <button>Order Now</button>
-      </div>
-
-      <!-- Jewelry -->
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1620921452376-0523dc11293a?auto=format&fit=crop&w=400&q=80" alt="Resin Jewelry">
-        <h3>Resin Jewelry</h3>
-        <p>Pendants, earrings, rings, bracelets, bridal jewelry and preserved flower sets.</p>
-        <button>Order Now</button>
-      </div>
-
-      <!-- Gift Items -->
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1612197522928-887e6f47262f?auto=format&fit=crop&w=400&q=80" alt="Resin Gifts">
-        <h3>Gift Items</h3>
-        <p>Birthday, anniversary, wedding, baby keepsakes, couple gifts, corporate gifts.</p>
-        <button>Order Now</button>
-      </div>
-
-      <!-- Accessories -->
-      <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1612197522928-887e6f47262f?auto=format&fit=crop&w=400&q=80" alt="Resin Accessories">
-        <h3>Small Accessories</h3>
-        <p>Bookmarks, phone covers, hair clips, fridge magnets, bag tags, festival bands.</p>
-        <button>Order Now</button>
-      </div>
-
+    <!-- Photo Frames -->
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1599042000640-4d1f4d9c2a53?auto=format&fit=crop&w=400&q=80" alt="Custom Photo Frame">
+      <h3>Custom Photo Frame</h3>
+      <p>Personalized frames for weddings, anniversaries, baby milestones, LED frames & floral designs.</p>
+      <button>Order Now</button>
     </div>
-  </section>
 
-  <!-- About Section -->
-  <section id="about">
-    <h2 class="section-title">About Mayuri</h2>
-    <p style="max-width:800px;margin:0 auto;text-align:center;line-height:1.8;">
-      Hi! I'm <strong>Mayuri</strong>, a passionate resin artist creating unique, handcrafted resin products.  
-      From keychains to photo frames, jewelry, and home décor – each piece is made with love and care.  
-      Custom orders are welcome – let's create something magical together! ✨
-    </p>
-  </section>
+    <!-- Keychains -->
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1617196030657-9370e8f85925?auto=format&fit=crop&w=400&q=80" alt="Resin Keychains">
+      <h3>Resin Keychains</h3>
+      <p>Alphabet, name, photo, couple, shaker, floral & glitter keychains.</p>
+      <button>Order Now</button>
+    </div>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2 class="section-title">Contact Me</h2>
-    <form class="contact-form">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-    <p style="text-align:center;margin-top:20px;">Or connect on Instagram: <a href="https://www.instagram.com/yourhandle" target="_blank">@yourhandle</a></p>
-  </section>
+    <!-- Home Décor -->
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1603398938378-5d1a1a17771f?auto=format&fit=crop&w=400&q=80" alt="Resin Home Décor">
+      <h3>Home Décor</h3>
+      <p>Name plates, wall art, clocks, coasters, trays, tea light holders & showpieces.</p>
+      <button>Order Now</button>
+    </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2026 Mayuri's Resin Art | All Rights Reserved</p>
-  </footer>
+    <!-- Jewelry -->
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1620921452376-0523dc11293a?auto=format&fit=crop&w=400&q=80" alt="Resin Jewelry">
+      <h3>Resin Jewelry</h3>
+      <p>Pendants, earrings, rings, bracelets, bridal & preserved flower jewelry sets.</p>
+      <button>Order Now</button>
+    </div>
+
+    <!-- Gift Items -->
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1612197522928-887e6f47262f?auto=format&fit=crop&w=400&q=80" alt="Resin Gifts">
+      <h3>Gift Items</h3>
+      <p>Birthday, anniversary, wedding, baby keepsakes, couple gifts, corporate gifts.</p>
+      <button>Order Now</button>
+    </div>
+
+    <!-- Accessories -->
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1612197522928-887e6f47262f?auto=format&fit=crop&w=400&q=80" alt="Resin Accessories">
+      <h3>Small Accessories</h3>
+      <p>Bookmarks, phone covers, hair clips, fridge magnets, bag tags, festival bands.</p>
+      <button>Order Now</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2 class="section-title">About Mayuri</h2>
+  <p style="max-width:800px;margin:0 auto;text-align:center;line-height:1.8;">
+    Hi! I'm <strong>Mayuri</strong>, a passionate resin artist creating unique handcrafted resin products.  
+    From keychains to photo frames, jewelry, and home décor – every piece is made with love.  
+    Custom orders welcome – let's create something magical together! ✨
+  </p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2 class="section-title">Custom Orders</h2>
+  <form class="contact-form">
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <input type="tel" placeholder="Your Contact Number" value="8605658140" required>
+    <select required>
+      <option value="">Select Product Type</option>
+      <option value="keychain">Keychain</option>
+      <option value="photo-frame">Photo Frame</option>
+      <option value="home-decor">Home Décor</option>
+      <option value="jewelry">Jewelry</option>
+      <option value="gift">Gift Item</option>
+      <option value="accessory">Accessory</option>
+    </select>
+    <input type="file" accept="image/*">
+    <textarea rows="5" placeholder="Your Customization Details" required></textarea>
+    <button type="submit">Send Custom Order</button>
+  </form>
+  <p style="text-align:center;margin-top:20px;">
+    Email: <a href="mailto:bmayuri118@gmail.com">bmayuri118@gmail.com</a> | 
+    Phone: <a href="tel:8605658140">8605658140</a> | 
+    Instagram: <a href="https://www.instagram.com/___mayuri_bhivsane?igsh=OWlnZ3I3cDdjcjht" target="_blank">@___mayuri_bhivsane</a>
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Mayuri's Resin Art | All Rights Reserved</p>
+</footer>
+
+<script>
+// Glitter particles
+const particleContainer = document.getElementById('particles');
+for(let i=0;i<50;i++){
+  let particle = document.createElement('div');
+  particle.classList.add('particle');
+  let size = Math.random()*5+2;
+  particle.style.width = size+'px';
+  particle.style.height = size+'px';
+  particle.style.left = Math.random()*100+'%';
+  particle.style.top = Math.random()*100+'%';
+  particle.style.animationDuration = 5+Math.random()*5+'s';
+  particleContainer.appendChild(particle);
+}
+</script>
 
 </body>
 </html>

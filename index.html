@@ -251,4 +251,47 @@ footer a {color: gold; font-weight:bold;}
 <section id="contact">
   <h2 class="section-title">Custom Orders</h2>
   <form class="contact-form">
-    <input type="text" placeholder="Your Name"
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <select required>
+      <option value="">Select Product Type</option>
+      <option value="keychain">Keychain</option>
+      <option value="photo-frame">Photo Frame</option>
+      <option value="home-decor">Home Décor</option>
+      <option value="jewelry">Jewelry</option>
+      <option value="gift">Gift Item</option>
+      <option value="accessory">Accessory</option>
+    </select>
+    <input type="file" accept="image/*">
+    <textarea rows="5" placeholder="Your Customization Details" required></textarea>
+    <button type="submit" onclick="window.location.href='https://wa.me/918605658140?text=Hi%20Mayuri!%20I%20want%20to%20place%20a%20custom%20order'">Send Custom Order</button>
+  </form>
+  <p style="text-align:center;margin-top:20px;">
+    Email: <a href="mailto:bmayuri118@gmail.com">bmayuri118@gmail.com</a> | 
+    Instagram: <a href="https://www.instagram.com/___mayuri_bhivsane?igsh=OWlnZ3I3cDdjcjht" target="_blank">@___mayuri_bhivsane</a>
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Mayuri's Resin Art | All Rights Reserved</p>
+</footer>
+
+<script>
+// Gold particles
+const particleContainer = document.getElementById('particles');
+for(let i=0;i<50;i++){
+  let particle = document.createElement('div');
+  particle.classList.add('particle');
+  let size = Math.random()*5+2;
+  particle.style.width = size+'px';
+  particle.style.height = size+'px';
+  particle.style.left = Math.random()*100+'%';
+  particle.style.top = Math.random()*100+'%';
+  particle.style.animationDuration = 5+Math.random()*5+'s';
+  particleContainer.appendChild(particle);
+}
+</script>
+
+</body>
+</html>
